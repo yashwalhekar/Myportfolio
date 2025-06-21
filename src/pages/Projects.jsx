@@ -12,12 +12,14 @@ import {
 } from "@mui/material";
 import hms from "../components/images/hms.png";
 import petcare from "../components/images/petcare.png";
+import ecommerce from "../components/images/Ecommerce.jpg";
+import portfolio from "../components/images/portfolio.png";
 
 const developmentProjects = [
   {
     title: "E-Commerce Website",
     description: "A full-stack MERN e-commerce site with payment integration.",
-    image: "https://via.placeholder.com/300x200",
+    image: ecommerce,
   },
   {
     title: "Hotel Management System",
@@ -37,7 +39,7 @@ const designProjects = [
   {
     title: "Portfolio Website",
     description: "Figma-based design for a modern developer portfolio.",
-    image: "https://via.placeholder.com/300x200",
+    image: portfolio,
   },
 ];
 
@@ -183,7 +185,7 @@ const Projects = ({ sectionStyle }) => {
                         underline="hover"
                         color="primary"
                       >
-                        {project.projectLink}
+                        View
                       </Link>
                     </Typography>
                   )}
