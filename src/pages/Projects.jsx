@@ -1,4 +1,3 @@
-// src/components/Projects.js
 import React, { useState } from "react";
 import {
   Box,
@@ -9,7 +8,6 @@ import {
   Card,
   CardMedia,
   CardContent,
-  Tooltip,
   Link,
 } from "@mui/material";
 import hms from "../components/images/hms.png";
@@ -48,6 +46,7 @@ const Projects = ({ sectionStyle }) => {
 
   return (
     <Box id="projects" sx={{ ...sectionStyle }}>
+      {/* Section Title */}
       <Typography
         variant="h3"
         sx={{
@@ -57,7 +56,7 @@ const Projects = ({ sectionStyle }) => {
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           textAlign: "center",
-          fontSize: 64,
+          fontSize: { xs: 36, sm: 48, md: 64 },
           letterSpacing: 2,
           textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
         }}
@@ -65,30 +64,35 @@ const Projects = ({ sectionStyle }) => {
         Projects
       </Typography>
 
+      {/* Subheading */}
       <Typography
         sx={{
           textAlign: "center",
           mt: 2,
-          fontSize: 25,
+          fontSize: { xs: 16, sm: 20, md: 25 },
           fontWeight: "regular",
           color: "white",
           fontFamily: "koHo",
-          m: 5,
+          mx: "auto",
+          maxWidth: 800,
+          px: { xs: 2, sm: 0, lg: 0 },
         }}
       >
         Dive into my world of development and design! These projects showcase
         real-world solutions, thoughtful UI, and modern tech in action.
       </Typography>
+
+      {/* Tabs */}
       <Box
         display={"flex"}
         justifyContent={"center"}
-        gap={10}
         sx={{
-          border: "2px solid ",
-          maxWidth: "70%",
+          border: "2px solid",
+          maxWidth: { xs: "95%", sm: "80%", md: "80%" },
           bgcolor: "#212121",
           mx: "auto",
-          borderRadius: 6,
+          borderRadius: { xs: 6, lg: 5 },
+          mt: 4,
         }}
       >
         <Tabs
@@ -97,7 +101,7 @@ const Projects = ({ sectionStyle }) => {
           centered
           textColor="inherit"
           indicatorColor="secondary"
-          sx={{ mt: 4, gap: 10, p: 2 }}
+          variant="fullWidth"
         >
           <Tab
             sx={{
@@ -106,8 +110,9 @@ const Projects = ({ sectionStyle }) => {
               background: "linear-gradient(0deg, #EF0FAF, #BE272C)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              fontSize: 24,
-              mx: 5,
+              fontSize: { xs: 16, sm: 20, md: 20 },
+              mx: 3,
+              p: 3,
             }}
             label="Development"
           />
@@ -118,25 +123,24 @@ const Projects = ({ sectionStyle }) => {
               background: "linear-gradient(0deg, #EF0FAF, #BE272C)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              fontSize: 24,
-              mx: 7,
+              fontSize: { xs: 16, sm: 20, md: 20 },
+              textDecoration: "none",
+              mx: 3,
             }}
             label="Design"
           />
         </Tabs>
       </Box>
 
-      <Grid container spacing={3} sx={{ mt: 4, justifyContent: "center" }}>
+      {/* Project Cards */}
+      <Grid
+        container
+        spacing={3}
+        sx={{ mt: 4, justifyContent: "center", px: 2 }}
+      >
         {(tab === 0 ? developmentProjects : designProjects).map(
           (project, index) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              key={index}
-              sx={{ height: "100%" }}
-            >
+            <Grid item xs={12} sm={6} md={4} key={index}>
               <Card
                 sx={{
                   height: "100%",
@@ -148,9 +152,10 @@ const Projects = ({ sectionStyle }) => {
               >
                 <CardMedia
                   component="img"
-                  height="300"
+                  height="200"
                   image={project.image}
                   alt={project.title}
+                  sx={{ objectFit: "cover" }}
                 />
                 <CardContent>
                   <Typography
@@ -168,17 +173,20 @@ const Projects = ({ sectionStyle }) => {
                   >
                     {project.description}
                   </Typography>
-                  <Typography>
-                    <Link
-                      href={project.projectLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      underline="hover"
-                      color="primary"
-                    >
-                      {project.projectLink}
-                    </Link>
-                  </Typography>
+
+                  {project.projectLink && (
+                    <Typography sx={{ mt: 1 }}>
+                      <Link
+                        href={project.projectLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        underline="hover"
+                        color="primary"
+                      >
+                        {project.projectLink}
+                      </Link>
+                    </Typography>
+                  )}
                 </CardContent>
               </Card>
             </Grid>

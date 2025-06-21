@@ -1,18 +1,25 @@
-import React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
+import React, { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Box,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import { Link } from "react-scroll"; // 🔹 Import react-scroll Link
+import { Link } from "react-scroll";
 
 const Navbar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const linkStyle = {
     fontFamily: "Jacques Francois",
@@ -22,56 +29,108 @@ const Navbar = () => {
     fontSize: "20px",
   };
 
-  return (
-    <AppBar
-      position="static"
-      sx={{ bgcolor: "#212121", borderBottomColor: "white" }}
-    >
-      <Toolbar sx={{ position: "relative" }}>
-        <Typography
-          variant="h6"
-          sx={{
-            flexShrink: 0,
-            fontFamily: "Jacques Francois",
-            fontSize: "30px",
-          }}
-        >
-          YASH
-        </Typography>
+  const navItems = [
+    { label: "Home", id: "home" },
+    { label: "About Me", id: "about" },
+    { label: "Projects", id: "projects" },
+    { label: "Contact", id: "contact" },
+  ];
 
-        {!isMobile && (
-          <Box
+  return (
+    <>
+      <AppBar
+        position="static"
+        sx={{ bgcolor: "#212121", borderBottomColor: "white" }}
+      >
+        <Toolbar sx={{ position: "relative" }}>
+          {/* Logo */}
+          <Typography
+            variant="h6"
             sx={{
-              position: "absolute",
-              left: "50%",
-              transform: "translateX(-50%)",
-              display: "flex",
-              gap: 2,
+              flexShrink: 0,
+              fontFamily: "Jacques Francois",
+              fontSize: "30px",
             }}
           >
-            {/* Use Link from react-scroll */}
-            <Link to="home" smooth={true} duration={500}>
-              <Button sx={linkStyle}>Home</Button>
-            </Link>
-            <Link to="about" smooth={true} duration={500}>
-              <Button sx={linkStyle}>About Me</Button>
-            </Link>
-            <Link to="projects" smooth={true} duration={500}>
-              <Button sx={linkStyle}>Projects</Button>
-            </Link>
-            <Link to="contact" smooth={true} duration={500}>
-              <Button sx={linkStyle}>Contact</Button>
-            </Link>
-          </Box>
-        )}
+            YASH
+          </Typography>
 
-        {isMobile && (
-          <IconButton color="inherit" sx={{ marginLeft: "auto" }}>
-            <MenuIcon />
-          </IconButton>
-        )}
-      </Toolbar>
-    </AppBar>
+          {/* Desktop Menu */}
+          {!isMobile && (
+            <Box
+              sx={{
+                position: "absolute",
+                left: "50%",
+                transform: "translateX(-50%)",
+                display: "flex",
+                gap: 2,
+              }}
+            >
+              {navItems.map((item) => (
+                <Link
+                  key={item.id}
+                  to={item.id}
+                  smooth={true}
+                  duration={500}
+                  offset={-80}
+                >
+                  <Button sx={linkStyle}>{item.label}</Button>
+                </Link>
+              ))}
+            </Box>
+          )}
+
+          {/* Mobile Menu Button */}
+          {isMobile && (
+            <IconButton
+              color="inherit"
+              sx={{ marginLeft: "auto" }}
+              onClick={() => setDrawerOpen(true)}
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
+        </Toolbar>
+      </AppBar>
+
+      {/* Drawer for Mobile View */}
+      <Drawer
+        anchor="right"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      >
+        <Box
+          sx={{ width: 250, bgcolor: "#212121", height: "100%" }}
+          role="presentation"
+        >
+          <List>
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                to={item.id}
+                smooth={true}
+                duration={500}
+                offset={-80}
+                onClick={() => setDrawerOpen(false)} // ✅ only close drawer on item click
+              >
+                <ListItem button>
+                  <ListItemText
+                    primary={item.label}
+                    primaryTypographyProps={{
+                      sx: {
+                        color: "white",
+                        fontFamily: "Jacques Francois",
+                        fontSize: 18,
+                      },
+                    }}
+                  />
+                </ListItem>
+              </Link>
+            ))}
+          </List>
+        </Box>
+      </Drawer>
+    </>
   );
 };
 

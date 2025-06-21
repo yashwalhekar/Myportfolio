@@ -1,27 +1,23 @@
-// src/Pages/Home.js
-
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import laptop from "../components/images/laptop.png";
-import myimg from "../components/images/myimg2.jpg";
 import { Button } from "@mui/material";
-import { useState } from "react";
 import AboutMe from "./AboutMe";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import Footer from "./Footer";
 
 const sectionStyle = {
-  minHeight: "100vh",
-  padding: "100px 30px",
-  //   backgroundColor: "#f0f0f0",
-  scrollMarginTop: "80px", // helps avoid content hiding behind navbar
+  minHeight: { xs: "80vh", sm: "100vh" },
+  padding: "100px 20px",
+  scrollMarginTop: "80px",
 };
 
 const Home = () => {
   return (
     <Stack sx={{ bgcolor: "black" }}>
+      {/* Hero Section */}
       <Box
         id="home"
         sx={{
@@ -29,14 +25,14 @@ const Home = () => {
           backgroundImage: `url(${laptop})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "center -84px",
+          backgroundPosition: { xs: "center -74px", sm: "center -84px" },
           position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
       >
-        {/* Overlay with reduced opacity */}
+        {/* Dark Overlay */}
         <Box
           sx={{
             position: "absolute",
@@ -49,7 +45,7 @@ const Home = () => {
           }}
         />
 
-        {/* Typography */}
+        {/* Main Text */}
         <Typography
           variant="h2"
           sx={{
@@ -57,29 +53,43 @@ const Home = () => {
             fontFamily: "Koh Santepheap",
             textAlign: "center",
             zIndex: 1,
-            marginTop: "150px",
-            fontSize: 40,
+            mt: { xs: 10, sm: 18 },
+            px: { xs: 0.5, sm: 0 },
+            fontSize: { xs: 22, sm: 28, md: 36, lg: 40 },
             color: "white",
-            position: "relative",
           }}
         >
-          <span
-            style={{
+          <Box
+            component="span"
+            sx={{
               background: "linear-gradient(90deg, #ff512f, #dd2476)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               fontWeight: "bold",
+              display: "inline-block",
             }}
           >
             YASH WALHEKAR
-          </span>
+          </Box>
           , a passionate Software <br /> Developer from Pune with 5 months of
           hands-on experience.
-          <br />
-          <span style={{ fontSize: 25 }}>
-            I build responsive, efficient, and user-friendly web applications
-            with modern technologies.
-          </span>
+        </Typography>
+
+        {/* Subtitle */}
+        <Typography
+          variant="body1"
+          sx={{
+            fontSize: { xs: 14, sm: 18, lg: 20 },
+            textAlign: "center",
+            zIndex: 1,
+            mt: 2,
+            color: "#ccc",
+            px: { xs: 1, sm: 0 },
+            maxWidth: "700px",
+          }}
+        >
+          I build responsive, efficient, and user-friendly web applications
+          using modern technologies.
         </Typography>
 
         {/* Resume Button */}
@@ -87,7 +97,7 @@ const Home = () => {
           variant="contained"
           disableElevation
           sx={{
-            mt: 3,
+            mt: 4,
             zIndex: 1,
             fontWeight: "bold",
             textTransform: "none",
@@ -96,22 +106,30 @@ const Home = () => {
             "&:hover": {
               background: "linear-gradient(90deg, #dd2476, #ff512f) !important",
             },
+            px: 4,
+            py: { xs: 0.5, lg: 1 },
+            fontSize: { xs: 10, sm: 16 },
           }}
-          href="/resume.pdf"
+          href="https://drive.google.com/file/d/1bLOqudh9qpCXX3n8nu-7paXJACgcaAk7/view?usp=sharing"
           target="_blank"
         >
           My Resume
         </Button>
       </Box>
+
+      {/* Other Sections */}
       <Box>
-        <AboutMe />
+        <AboutMe sectionStyle={sectionStyle} />
       </Box>
-      <Box sx={{ my: "200px" }}>
+
+      <Box sx={{ my: { xs: 8, md: 25 } }}>
         <Projects />
       </Box>
+
       <Box>
         <Contact />
       </Box>
+
       <Footer />
     </Stack>
   );
