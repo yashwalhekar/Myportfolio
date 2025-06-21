@@ -9,7 +9,7 @@ import Contact from "./Contact";
 import Footer from "./Footer";
 
 const sectionStyle = {
-  minHeight: { xs: "80vh", sm: "100vh" },
+  minHeight: { xs: "80vh", sm: "100vh", md: "70vh", lg: "70vh" },
   padding: "100px 20px",
   scrollMarginTop: "80px",
 };
@@ -25,7 +25,13 @@ const Home = () => {
           backgroundImage: `url(${laptop})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          backgroundPosition: { xs: "center -74px", sm: "center -84px" },
+          backgroundPosition: {
+            xs: "center -14px",
+            sm: "center -25px",
+            lg: "center 10px",
+            md: "center 50px",
+            xl: "center -30px",
+          },
           position: "relative",
           display: "flex",
           flexDirection: "column",

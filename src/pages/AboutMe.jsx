@@ -36,25 +36,26 @@ const AboutMe = ({ sectionStyle }) => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", md: "row" },
+          flexDirection: { xs: "column", lg: "row" },
           alignItems: "center",
           justifyContent: "center",
-          gap: { xs: 4, md: 6 },
+          gap: { xs: 4, md: 8, lg: 12 },
           mt: { xs: 4, md: 10 },
+          px: { xs: 2, md: 8, lg: 16 },
         }}
       >
         {/* Image */}
         <Box
           sx={{
-            width: { xs: 250, sm: 300, md: 400, lg: 550 },
-            height: { xs: 250, sm: 400, md: 400, lg: 650 },
+            width: { xs: 250, sm: 300, md: 400, lg: 500 },
+            height: { xs: 250, sm: 350, md: 550, lg: 650 },
             borderRadius: "50%",
             overflow: "hidden",
             boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
             flexShrink: 0,
-            position: { lg: "absolute" }, // Only absolute on large screens
-            left: { lg: "-40px" }, // Move half outside screen
-            top: { lg: "170%" },
+            position: { md: "absolute", lg: "absolute" }, // Only absolute on large screens
+            left: { md: "-60px", lg: "-40px" }, // Move half outside screen
+            top: { lg: "150%", md: "190%" },
           }}
         >
           <img
@@ -68,10 +69,10 @@ const AboutMe = ({ sectionStyle }) => {
         <Box
           sx={{
             color: "white",
-            maxWidth: { xs: "100%", md: 900 },
+            maxWidth: { xs: "100%", lg: "60%" },
             px: { xs: 2, sm: 3 },
             mt: { xs: 2, md: 0 },
-            ml: { lg: "400px" },
+            ml: { md: "300px" },
           }}
         >
           <Typography
@@ -79,8 +80,8 @@ const AboutMe = ({ sectionStyle }) => {
             sx={{
               fontFamily: "KoHo",
               opacity: 0.8,
-              fontSize: { xs: 16, sm: 18, md: 24 },
-              textAlign: { xs: "center", lg: "start" },
+              fontSize: { xs: 16, sm: 18, md: 20, lg: 24 },
+              textAlign: { xs: "center", lg: "start", md: "start" },
             }}
           >
             I'm a Frontend and MERN Stack Developer who loves crafting
@@ -93,13 +94,13 @@ const AboutMe = ({ sectionStyle }) => {
           <Typography
             sx={{
               mt: 5,
-              fontSize: { xs: 24, md: 30 },
+              fontSize: { xs: 24, md: 25 },
               fontFamily: "koHo",
               background: "linear-gradient(0deg, #DB2799, #751552)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               fontWeight: "bold",
-              textAlign: { xs: "center", lg: "start" },
+              textAlign: { xs: "center", lg: "start", md: "start" },
             }}
           >
             Education
@@ -111,8 +112,8 @@ const AboutMe = ({ sectionStyle }) => {
                 variant="h6"
                 sx={{
                   fontWeight: 600,
-                  opacity: 0.9,
-                  fontSize: { xs: 14, md: 20, lg: 24 },
+                  opacity: 0.8,
+                  fontSize: { xs: 14, md: 16, lg: 24 },
                 }}
               >
                 Graduation in BSc Computer Science
@@ -120,7 +121,13 @@ const AboutMe = ({ sectionStyle }) => {
                   2022
                 </Box>
               </Typography>
-              <Typography sx={{ ml: 2, fontSize: { xs: 14, md: 14, lg: 16 } }}>
+              <Typography
+                sx={{
+                  ml: 2,
+                  fontSize: { xs: 14, md: 14, lg: 16 },
+                  opacity: 0.8,
+                }}
+              >
                 Modern College Ganeshkhind, Pune
               </Typography>
             </Box>
@@ -130,8 +137,8 @@ const AboutMe = ({ sectionStyle }) => {
                 variant="h6"
                 sx={{
                   fontWeight: 600,
-                  opacity: 0.9,
-                  fontSize: { xs: 14, md: 20, lg: 24 },
+                  opacity: 0.8,
+                  fontSize: { xs: 14, md: 16, lg: 24 },
                 }}
               >
                 Post Graduation in MSc Computer Application
@@ -139,7 +146,13 @@ const AboutMe = ({ sectionStyle }) => {
                   2024
                 </Box>
               </Typography>
-              <Typography sx={{ ml: 2, fontSize: { xs: 14, md: 14, lg: 16 } }}>
+              <Typography
+                sx={{
+                  ml: 2,
+                  fontSize: { xs: 14, md: 14, lg: 16 },
+                  opacity: 0.8,
+                }}
+              >
                 Modern College Ganeshkhind, Pune
               </Typography>
             </Box>
@@ -175,7 +188,7 @@ const AboutMe = ({ sectionStyle }) => {
                     sx={{
                       color: "white",
                       fontWeight: 500,
-                      fontSize: 16,
+                      fontSize: 14,
                       fontFamily: "koHo",
                     }}
                   >
