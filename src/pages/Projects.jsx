@@ -211,7 +211,7 @@ const Projects = ({ sectionStyle }) => {
                       overflow: "hidden",
                       textOverflow: "ellipsis",
                       display: "-webkit-box",
-                      WebkitLineClamp: 4, // Show up to 4 lines
+                      WebkitLineClamp: 9, // Show up to 4 lines
                       WebkitBoxOrient: "vertical",
                     }}
                   >
