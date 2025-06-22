@@ -18,13 +18,14 @@ import portfolio from "../components/images/portfolio.png";
 const developmentProjects = [
   {
     title: "E-Commerce Website",
-    description: "A full-stack MERN e-commerce site with payment integration.",
+    description:
+      "A responsive full-stack E-Commerce platform built with the MERN stack, featuring seamless user experience, secure payment integration, and modern UI design.",
     image: ecommerce,
   },
   {
     title: "Hotel Management System",
     description:
-      "Inventory and booking system for resort using Firebase.Technologies used are React js ",
+      "Designed and implemented a full-featured Inventory and Booking System for a resort, leveraging Firebase for real-time data management. Utilized React.js with Tailwind CSS and Material-UI to deliver a modern, user-friendly interface.",
     image: hms,
   },
 ];
@@ -150,28 +151,39 @@ const Projects = ({ sectionStyle }) => {
                   flexDirection: "column",
                   boxShadow: 3,
                   backgroundColor: "#212121",
+                  maxWidth: 600,
+                  mx: "auto", // center horizontally
+                  borderRadius: 4,
                 }}
               >
                 <CardMedia
                   component="img"
-                  height="200"
+                  height="350"
                   image={project.image}
                   alt={project.title}
                   sx={{ objectFit: "cover" }}
                 />
-                <CardContent>
+                <CardContent sx={{ flexGrow: 1, overflow: "hidden" }}>
                   <Typography
                     variant="h6"
                     fontWeight="bold"
                     color="white"
-                    sx={{ opacity: "80%" }}
+                    sx={{ opacity: "80%", mb: 1 }}
                   >
                     {project.title}
                   </Typography>
 
                   <Typography
                     variant="body2"
-                    sx={{ color: "white", opacity: "80%" }}
+                    sx={{
+                      color: "white",
+                      opacity: "80%",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      display: "-webkit-box",
+                      WebkitLineClamp: 4, // Show up to 4 lines
+                      WebkitBoxOrient: "vertical",
+                    }}
                   >
                     {project.description}
                   </Typography>
