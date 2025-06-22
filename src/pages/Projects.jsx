@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Typography,
@@ -9,6 +9,7 @@ import {
   CardMedia,
   CardContent,
   Link,
+  Skeleton,
 } from "@mui/material";
 import hms from "../components/images/hms.png";
 import petcare from "../components/images/petcare.png";
@@ -46,6 +47,12 @@ const designProjects = [
 
 const Projects = ({ sectionStyle }) => {
   const [tab, setTab] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  // Handle loading reset when switching tabs
+  useEffect(() => {
+    setLoading(true); // Reset loading on tab switch
+  }, [tab]);
 
   return (
     <Box id="projects" sx={{ ...sectionStyle }}>
@@ -151,18 +158,41 @@ const Projects = ({ sectionStyle }) => {
                   flexDirection: "column",
                   boxShadow: 3,
                   backgroundColor: "#212121",
-                  maxWidth: 600,
+                  maxWidth: 500,
                   mx: "auto", // center horizontally
                   borderRadius: 4,
                 }}
               >
                 <CardMedia
-                  component="img"
-                  height="350"
-                  image={project.image}
-                  alt={project.title}
-                  sx={{ objectFit: "cover" }}
-                />
+                  component="div"
+                  sx={{ height: 300, position: "relative" }}
+                >
+                  {loading ? (
+                    <Skeleton
+                      variant="rectangular"
+                      width="100%"
+                      height="100%"
+                      animation="wave"
+                      sx={{ bgcolor: "#333" }}
+                    />
+                  ) : null}
+
+                  <Box
+                    component="img"
+                    src={project.image}
+                    alt={project.title}
+                    onLoad={() => setLoading(false)}
+                    sx={{
+                      display: loading ? "none" : "block",
+                      height: "100%",
+                      width: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                    }}
+                  />
+                </CardMedia>
                 <CardContent sx={{ flexGrow: 1, overflow: "hidden" }}>
                   <Typography
                     variant="h6"
