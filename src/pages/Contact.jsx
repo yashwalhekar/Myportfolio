@@ -47,7 +47,7 @@ const Contact = ({ sectionStyle }) => {
           fontFamily={"koHo"}
           justifyContent="center"
           alignItems="center"
-          gap={2}
+          gap={1}
           my={2}
           sx={{ opacity: 0.8, fontSize: { xs: 14, sm: 18, md: 20 } }}
         >
@@ -62,7 +62,8 @@ const Contact = ({ sectionStyle }) => {
           my={2}
           sx={{ opacity: 0.8, fontSize: { xs: 14, sm: 18, md: 20 } }}
         >
-          <Phone /> +91 7350304508
+          <Phone />
+          +91 7350304508
         </Box>
         <Box
           display="flex"
@@ -90,7 +91,7 @@ const Contact = ({ sectionStyle }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <LinkedIn sx={{ color: "#0A66C2", fontSize: { xs: 30, lg: 48 } }} />
+          <LinkedIn sx={{ color: "white", fontSize: { xs: 30, lg: 48 } }} />
         </a>
       </Box>
     </Box>

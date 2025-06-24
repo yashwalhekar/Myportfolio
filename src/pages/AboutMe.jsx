@@ -85,9 +85,14 @@ const AboutMe = ({ sectionStyle }) => {
             }}
           >
             I'm a Frontend and MERN Stack Developer who loves crafting
-            beautiful, responsive, and efficient web experiences. With a blend
-            of creativity and logic, I build user-friendly web applications
-            using modern technologies.
+            beautiful, responsive, and efficient web experiences. With a strong
+            foundation in JavaScript, React.js, Node.js, Express, and MongoDB, I
+            bring both creativity and logic to every project. With 1 year of
+            hands-on experience, I've built and contributed to real-world
+            applications that are both user-friendly and performance-optimized.
+            I’m passionate about clean code, modern UI/UX practices, and
+            continuously improving my skills to stay updated with the latest web
+            development trends.
           </Typography>
 
           {/* Education */}

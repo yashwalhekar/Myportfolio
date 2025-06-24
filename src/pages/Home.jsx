@@ -77,8 +77,8 @@ const Home = () => {
           >
             YASH WALHEKAR
           </Box>
-          , a passionate Software <br /> Developer from Pune with 5 months of
-          hands-on experience.
+          , a passionate Software <br /> Developer from Pune 1 year of hands-on
+          of hands-on experience.
         </Typography>
 
         {/* Subtitle */}
@@ -116,7 +116,7 @@ const Home = () => {
             py: { xs: 0.5, lg: 1 },
             fontSize: { xs: 10, sm: 16 },
           }}
-          href="https://drive.google.com/file/d/1bLOqudh9qpCXX3n8nu-7paXJACgcaAk7/view?usp=sharing"
+          href="https://drive.google.com/file/d/1Of_EOUk-UfA2vehQNeuesVyugOD-5Cwm/view?usp=sharing"
           target="_blank"
         >
           My Resume

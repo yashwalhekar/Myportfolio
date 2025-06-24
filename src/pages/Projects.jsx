@@ -165,7 +165,7 @@ const Projects = ({ sectionStyle }) => {
               >
                 <CardMedia
                   component="div"
-                  sx={{ height: 300, position: "relative" }}
+                  sx={{ height: 250, position: "relative" }}
                 >
                   {loading ? (
                     <Skeleton
