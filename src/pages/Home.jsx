@@ -116,7 +116,7 @@ const Home = () => {
             py: { xs: 0.5, lg: 1 },
             fontSize: { xs: 10, sm: 16 },
           }}
-          href="https://drive.google.com/file/d/1Of_EOUk-UfA2vehQNeuesVyugOD-5Cwm/view?usp=sharing"
+          href="https://drive.google.com/file/d/1pg9JHYekEuxLdSbF5hokUOK44To5AmvT/view?usp=drive_link"
           target="_blank"
         >
           My Resume
