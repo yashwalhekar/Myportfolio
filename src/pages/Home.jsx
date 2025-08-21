@@ -78,7 +78,7 @@ const Home = () => {
             YASH WALHEKAR
           </Box>
           , a passionate Software <br /> Developer from Pune 1 year of hands-on
-          of hands-on experience.
+          experience.
         </Typography>
 
         {/* Subtitle */}
